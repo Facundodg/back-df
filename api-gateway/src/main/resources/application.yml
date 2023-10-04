@@ -1,0 +1,35 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: notification-microservice
+          uri: lb://NOTIFICATION-MICROSERVICE
+          predicates:
+            - Path=/notification/**
+          filters:
+            - StripPrefix=2
+            - EjemploCookie=Hola mi mensaje personalizado, usuario, AndresGuzman
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8084/eureka
+
+#        - id: servicio-items
+#          uri: lb://servicio-items
+#          predicates:
+#            - Path=/api/items/**
+#          filters:
+#            - StripPrefix=2
+#            - AddRequestHeader=token-request, 123456
+#            - AddResponseHeader=token-response, 12345678
+#            - SetResponseHeader=Content-Type, text/plain
+#            - AddRequestParameter=nombre, andres

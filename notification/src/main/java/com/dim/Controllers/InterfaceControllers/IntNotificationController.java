@@ -16,7 +16,7 @@ import java.util.List;
 public interface IntNotificationController {
 
     @Operation(summary = "Busca todas las notificaciones", description = "Retorna todas las notificaciones")
-    @GetMapping("/todo")
+    @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
     ResponseEntity<List<NotificationGet>> GetAllNotification();
 

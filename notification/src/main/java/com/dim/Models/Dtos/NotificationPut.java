@@ -3,21 +3,15 @@ package com.dim.Models.Dtos;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.Date;
+
 
 @Data
 @Builder
@@ -25,12 +19,13 @@ import java.util.Date;
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class NotificationGet {
+public class NotificationPut {
 
     @NotNull
-    private Long id;
-    @NotNull
-    //@Min(value = 10,message = "El CUIT tiene que tener como minimo 10 caracteres")
+    //@Min(value = 10, message = "El CUIT tiene que tener como minimo 10 caracteres")
+    //@Max(value = 10, message = "El CUIT tiene que tener como maximo 10 caracteres") //3423433343
+    //@Digits(integer = 10, fraction = 0, message = "El CUIT debe tener exactamente 10 dígitos")
+    //@Range(min= 10, max= 10)
     private int cuit;
     @NotNull
     private String userEnv;
