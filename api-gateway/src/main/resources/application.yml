@@ -1,5 +1,5 @@
 server:
-  port: 0
+  port: 8090
 
 spring:
   application:
@@ -21,7 +21,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8084/eureka
+      defaultZone: http://${EUREKA_DIR:172.20.255.15}:${server.eureka.port:8084}/eureka
 
 #        - id: servicio-items
 #          uri: lb://servicio-items
@@ -33,3 +33,5 @@ eureka:
 #            - AddResponseHeader=token-response, 12345678
 #            - SetResponseHeader=Content-Type, text/plain
 #            - AddRequestParameter=nombre, andres
+
+EUREKA_DIR: localhost
