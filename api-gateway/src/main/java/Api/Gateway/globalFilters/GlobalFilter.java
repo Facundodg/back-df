@@ -17,13 +17,13 @@ public class GlobalFilter implements org.springframework.cloud.gateway.filter.Gl
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
 
-        log.info("ejemplo de filtro pre GLOBAL");
+        log.info("PRE FILTRO GLOBAL");
 
         return chain.filter(exchange).then(Mono.fromRunnable(() -> {
 
-            log.info("ejemplo de filtro post GLOBAL");
+            log.info("POST FILTRO GLOBAL");
 
-            exchange.getResponse().getCookies().add("color", ResponseCookie.from("color","rojo").build());
+            exchange.getResponse().getCookies().add("MCS", ResponseCookie.from("MCS","NOTIFICATION").build());
             //exchange.getResponse().getHeaders().setContentType(MediaType.TEXT_PLAIN);
 
         }));

@@ -1,0 +1,43 @@
+server:
+  port: 8091
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: notification-microservice
+          uri: lb://notification-microservice
+          predicates:
+            - Path=/notification/**
+
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:3000"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+            allowedHeaders:
+              - authorization
+              - content-type
+              - x-requested-with
+              - cache-control
+              - x-xsrf-token
+              - accept
+              - origin
+              - x-file-name
+
+#          filters:
+#            - EjemploCookie=Hola mi mensaje personalizado, usuario, AndresGuzman
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka

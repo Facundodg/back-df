@@ -1,5 +1,6 @@
 package com.dim.Models.Dtos;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -42,12 +43,15 @@ public class NotificationGet {
     private String pdf;
     @NotNull
     @PastOrPresent(message = "[dateRead] debe ser actual o pasada")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "UTC")
     private LocalDateTime dateRead;
     @NotNull
     @PastOrPresent(message = "[dateNotification] debe ser actual o pasada")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "UTC")
     private LocalDateTime dateNotification;
     @NotNull
     @PastOrPresent(message = "[dateDelivered] debe ser actual o pasada")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "UTC")
     private LocalDateTime dateDelivered;
 
     private boolean statusDateReported;

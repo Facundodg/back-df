@@ -9,8 +9,10 @@ import com.dim.Services.InterfaceServices.IntNotificationServices;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -71,8 +73,6 @@ public class ImpNotificationServices implements IntNotificationServices {
         notificationRepository.updateAllStatusDateReportedByCuitNotification(id);
     }
 }
-
-
 
 
 

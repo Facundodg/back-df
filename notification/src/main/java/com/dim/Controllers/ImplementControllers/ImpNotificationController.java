@@ -143,7 +143,7 @@ public class ImpNotificationController implements IntNotificationController {
 
     }
 
-    @Operation(summary = "Muestra el pdf.", description = "Retorna el pdf para descargar")
+    @Operation(summary = "Muestra el p  df.", description = "Retorna el pdf para descargar")
     @GetMapping("/{filename:.+}")
     public ResponseEntity<Resource> getFile(@PathVariable String filename) throws Exception {
 
@@ -154,9 +154,9 @@ public class ImpNotificationController implements IntNotificationController {
 
     }
 
-
     @Override
     @Operation(summary = "Listar todas las notificaciones", description = "Retorna todas las notificacion")
+    @CrossOrigin(origins = "*") // Configura el origen permitido
     @GetMapping(value = "/to-list")
     public ResponseEntity<List<NotificationGet>> GetAllNotification() {
         log.info(("[NotificationController - to-list]"));

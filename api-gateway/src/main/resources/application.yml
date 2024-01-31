@@ -11,27 +11,24 @@ spring:
           enabled: true
       routes:
         - id: notification-microservice
-          uri: lb://NOTIFICATION-MICROSERVICE
+          uri: lb://notification-microservice
           predicates:
             - Path=/notification/**
           filters:
-            - StripPrefix=2
-            - EjemploCookie=Hola mi mensaje personalizado, usuario, AndresGuzman
+            - EjemploCookie=MCSNOTIFICATION, usuario, basico
+
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+#      routes:
+#        - id: portalModule
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://${EUREKA_DIR:172.20.255.15}:${server.eureka.port:8084}/eureka
-
-#        - id: servicio-items
-#          uri: lb://servicio-items
-#          predicates:
-#            - Path=/api/items/**
-#          filters:
-#            - StripPrefix=2
-#            - AddRequestHeader=token-request, 123456
-#            - AddResponseHeader=token-response, 12345678
-#            - SetResponseHeader=Content-Type, text/plain
-#            - AddRequestParameter=nombre, andres
-
-EUREKA_DIR: localhost
+      defaultZone: http://localhost:8761/eureka
