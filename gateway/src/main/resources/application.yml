@@ -19,6 +19,7 @@ spring:
         corsConfigurations:
           '[/**]':
             allowedOrigins: "http://localhost:3000"
+#            allowedOrigins: "http://172.20.255.15:3000"
             allowedMethods:
               - GET
               - POST
@@ -41,3 +42,4 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
+        #defaultZone: http://service-eurekaServer-dev:8761/eureka
