@@ -19,7 +19,7 @@ spring:
         corsConfigurations:
           '[/**]':
             allowedOrigins: "http://localhost:3000"
-#            allowedOrigins: "http://172.20.255.15:3000"
+#            allowedOrigins: "http://172.20.255.15:3000" AQUI VA LA DIRECCION DE EL MICROSERVICIO OSAE EL NOMBRE DEL SERVICIO
             allowedMethods:
               - GET
               - POST
